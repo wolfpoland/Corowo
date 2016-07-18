@@ -13,10 +13,11 @@ namespace WebApiCore.Controllers
     [Route("api/[controller]")]
     public class KsiazkiController : Controller
     {
-        public KsiazkiController(IKsiazkiRepository lista)
+       /* public KsiazkiController(IKsiazkiRepository lista)
         {
             this.lista = lista;
         }
+        */
         public KsiazkiController()
         {
             lista = new KsiazkiImplementacja();

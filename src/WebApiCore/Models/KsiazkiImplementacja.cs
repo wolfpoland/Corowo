@@ -7,7 +7,11 @@ namespace WebApiCore.Models
 {
     public class KsiazkiImplementacja : IKsiazkiRepository
     {
-        List<Ksiazki> lista = new List<Ksiazki>();
+        List<Ksiazki> lista = new List<Ksiazki>()
+        {
+            new Ksiazki { ISBN="1234", Przeczytana=false, Tytul="Dzieci z bulerbyn" },
+             new Ksiazki { ISBN="5678", Przeczytana=false, Tytul="Alicja w Krainie Czarow" }
+        };
         public void Add(Ksiazki k)
         {
             lista.Add(k);    
