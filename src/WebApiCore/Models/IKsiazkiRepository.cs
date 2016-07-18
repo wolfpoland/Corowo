@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApiCore.Models
 {
-    interface IKsiazkiRepository
+   public interface IKsiazkiRepository
     {
         void Add(Ksiazki k);
         IEnumerable<Ksiazki> getAll();

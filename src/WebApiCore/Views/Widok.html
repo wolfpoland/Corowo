@@ -1,10 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>Allegro2</title>
     <meta charset="utf-8" />
-    <title></title>
 </head>
 <body>
+    <ul id="produkty"></ul>
+    <input type="text" id="textowe" />
+    <input type="button" id="przycisk" value="Szukaj" />
+    <p id="wynik" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON('http://localhost:50658/api/Ksiazki')
+            .done(function (data) {
+                console.log(data);
+                $.each(data, function (key, item) {
+                    $('<li>', {text: formatowanie(item)}).appendTo($('#produkty'));
+                });
+
+            });
+            $(document).on('click', $('#przycisk'), function () {
+                var id = $('#textowe').val();
+                $.getJSON('http://localhost:50658/api/Produkties' + '/' + id).done(function (data) {
+                    $('#wynik').text(formatowanie(data));
+                }).fail(function (jqXHR, textStatus, err) {
+                    $('wynik').text('Error: ' + err);
+                });
+
+            });
+            function formatowanie(item){
+                return item.Id+' '+item.Nazwa+' '+item.Kategoria+' '+item.Cena;
+            }
+    });
+    </script>
 
 </body>
 </html>
