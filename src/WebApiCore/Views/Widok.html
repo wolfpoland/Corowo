@@ -12,12 +12,13 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
         $(document).ready(function () {
-            $.getJSON('http://localhost:50658/api/Ksiazki')
+            $.getJSON('http://localhost:50137/api/Ksiazki')
             .done(function (data) {
                 console.log(data);
                 $.each(data, function (key, item) {
                     $('<li>', {text: formatowanie(item)}).appendTo($('#produkty'));
                 });
+
 
             });
             $(document).on('click', $('#przycisk'), function () {
